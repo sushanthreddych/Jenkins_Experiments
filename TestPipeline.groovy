@@ -1,15 +1,13 @@
 pipeline {
     agent any
-
+    parameters {
+        choice(name: 'DEPLOY_TO', choices: ['dev', 'production'])
+    }
     stages {
         stage('Hello') {
-            when {
-                expression {
-                    env.GIT_BRANCH == 'origin/master'
-                }
-            }
+            when { allOf { GIT_BRANCH 'origin/main'; environment name: 'DEPLOY_TO', value: 'production' } }
             steps {
-                echo "Hello World ${env.GIT_BRANCH}  and ${env.branch} and ${env.BRANCH_NAME}"
+                echo "Hello World ${env.GIT_BRANCH}  and deployto is ${env.DEPLOY_TO}"
             }
         }
     }
