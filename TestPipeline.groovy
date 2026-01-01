@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
         stage('Hello') {
-            when { allOf { GIT_BRANCH 'origin/main'; environment name: 'DEPLOY_TO', value: 'production' } }
+            when { allOf { env.GIT_BRANCH 'origin/main'; environment name: 'DEPLOY_TO', value: 'production' } }
             steps {
                 echo "Hello World ${env.GIT_BRANCH}  and deployto is ${env.DEPLOY_TO}"
             }
