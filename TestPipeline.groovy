@@ -3,11 +3,8 @@ pipeline {
 
     stages {
         stage('Hello') {
-            when {
-                branch 'origin/main'
-            }
             steps {
-                echo "Hello World ${env.GIT_BRANCH}"
+                echo "Hello World ${env.GIT_BRANCH}  and ${env.branch} and {env.BRANCH_NAME}"
             }
         }
     }
