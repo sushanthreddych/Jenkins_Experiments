@@ -3,13 +3,16 @@ pipeline {
 
     stages {
         stage('Hello') {
+            input {
+                message "Should we continue?"
+            }
             steps {
                 echo 'Hello World'
             }
         }
     }
     post {
-        failure {
+        success {
             echo 'Pipeline completed'
         }
     }
