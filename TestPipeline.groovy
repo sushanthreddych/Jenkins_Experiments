@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             when {
-                branch 'main'
+                GIT_BRANCH 'main'
             }
             steps {
                 echo 'Hello World'
