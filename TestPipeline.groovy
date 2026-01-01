@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Hello') {
             when {
-                GIT_BRANCH 'main'
+                env.GIT_BRANCH == 'origin/main' || env.GIT_BRANCH == 'main'
             }
             steps {
-                echo 'Hello World'
+                echo 'Hello World ${env.GIT_BRANCH'}
             }
         }
     }
