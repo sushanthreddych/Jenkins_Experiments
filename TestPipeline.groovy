@@ -10,7 +10,6 @@ pipeline {
                 echo 'Hello World ${env.GIT_BRANCH'}
             }
         }
-    }
     post {
         success {
             echo 'Pipeline completed'
